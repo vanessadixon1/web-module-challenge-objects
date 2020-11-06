@@ -46,21 +46,21 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 
-//  export const burger = {
-//   name: "Burger", 
-//   price: 18, 
-//   category: "Lunch", 
-//   discount: function(role) {
-//     if(role === "student" || role === "teacher") {
-//       let disc = this.price * 0.25;
-//        return this.price - disc;
-//     } else {
-//       let disc = this.price * 0.10;
-//       return this.price - disc;
-//     }
+ export const burger = {
+  name: "Burger", 
+  price: 18, 
+  category: "Lunch", 
+  discount: function(role) {
+    if(role === "student" || role === "teacher") {
+      let disc = this.price * 0.25;
+       return this.price - disc;
+    } else {
+      let disc = this.price * 0.10;
+      return this.price - disc;
+    }
 
-//   }
-// }
+  }
+}
 
 
 
@@ -227,9 +227,9 @@ function foo(){
   return 'bar';
 }
 
-// export default{
-//   foo,
-//   createMenuItem,
-//   getReviewByIndex,
-//   getLastReview,
-// }
+export default{
+  foo,
+  createMenuItem,
+  getReviewByIndex,
+  getLastReview,
+}
