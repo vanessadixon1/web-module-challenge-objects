@@ -46,23 +46,23 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 
- export const burger = {
-  name: "Burger", 
-  price: 18, 
-  category: "Lunch", 
-  discount: function(role) {
-    if(role === "student" || role === "teacher") {
-      let disc = this.price * 0.25;
-       return this.price - disc;
-    } else {
-      let disc = this.price * 0.10;
-      return this.price - disc;
-    }
+//  export const burger = {
+//   name: "Burger", 
+//   price: 18, 
+//   category: "Lunch", 
+//   discount: function(role) {
+//     if(role === "student" || role === "teacher") {
+//       let disc = this.price * 0.25;
+//        return this.price - disc;
+//     } else {
+//       let disc = this.price * 0.10;
+//       return this.price - disc;
+//     }
 
-  }
-}
+//   }
+// }
 
-console.log(burger.discount("teacher"))
+
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -82,15 +82,19 @@ Using the reviews array above:
   1. log only Julius' feedback to the console
 */
 
-
-
+for(let review of reviews) {
+  if( review.name === "Julius") {
+    console.log(review.feedback);
+  }
+}
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Using the reviews array above do the following:
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
-
+const i = reviews.push({name: "ka", rating: 1.5, feedback: "time was long"})
+console.log(reviews)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -99,7 +103,13 @@ Reyna's feedback is missing! Use what you know to do the following:
   2. log the reviews array to the console to check your work
 */
 
+for(let i = 0; i < reviews.length; i++) {
+  if(reviews[i].name === "Reyna") {
+    reviews[i].feedback = "this place is chill with really cool people, great for getting work done on weekdays"
+  }
+}
 
+ console.log(reviews)
 
 
 
@@ -113,8 +123,8 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(arr, pos) {
+  return `${arr[pos].name} gave the restaurant a 5 star review, and their feedback was: ${arr[pos].feedback}`
 }
 
 
@@ -131,8 +141,8 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(arr) {
+  return `${arr[arr.length-1].name} gave the restaurant a ${arr[arr.length-1].rating} star review, and their feedback was: ${arr[arr.length-1].feedback}`
 } 
 
 
@@ -153,10 +163,15 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+ function getReviewByRating(arr, ratings) {
+   const arra = arr.filter(r => {
+     if(r.rating >= ratings && r.rating < ratings+1) {
+       return r;
+     }
+   })
+   return arra
   }
-
+console.log(getReviewByRating(reviews,5))
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
 Use the getLongReviews function below to do the following:
@@ -171,10 +186,16 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(arr) {
+  const newArray = arr.filter(r => {
+    const b = r.feedback.split(" ").length;
+    if(b > 15) {
+      return r;
+    }
+  })
+  return newArray;
   }
-  
+  console.log(getLongReviews(reviews));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
 This stretch goal does not use the reviews data!  You create your own object in this stretch goal.
@@ -206,9 +227,9 @@ function foo(){
   return 'bar';
 }
 
-export default{
-  foo,
-  createMenuItem,
-  getReviewByIndex,
-  getLastReview,
-}
+// export default{
+//   foo,
+//   createMenuItem,
+//   getReviewByIndex,
+//   getLastReview,
+// }
